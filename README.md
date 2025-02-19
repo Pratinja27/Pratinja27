@@ -4,7 +4,6 @@
 - 🔭 I’m currently working on **Virtual Wardrobe System**
 - 🌱 I’m exploring **Flask, React.js, and Database Management**
 - 💡 Interested in **Web Technologies, Python, and System Design**
-- 📫 How to reach me: [Your Email or LinkedIn]  
 
 <h3 align="left">Tech Stack:</h3>
 <p align="left">
