@@ -1,8 +1,10 @@
 <h1 align="center">Hi 👋, I'm Pratinja</h1>
-<h3 align="center">3rd Year BCS Student | Passionate about Software Development</h3>
+<h3 align="center">Aspiring Software Developer | Currently in Training & Internship</h3>
 
-- 🔭 I’m currently working on **Virtual Wardrobe System**
-- 🌱 I’m exploring **Flask, React.js, and Database Management**
+- 🎓 Completed **B.Sc. Computer Science**
+- 💼 Currently undergoing **Training & Internship at Kiran Academy (Free Program)**
+- 🔭 Working on **simple projects and strengthening Python fundamentals**
+- 🌱 Exploring **Flask, React.js, and Database Management**
 - 💡 Interested in **Web Technologies, Python, and System Design**
 
 <h3 align="left">Tech Stack:</h3>
