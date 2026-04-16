@@ -1,0 +1,515 @@
+## Github assignmet
+start the git hub
+git -v
+git config --global user.name "    "
+git config --global user.email  "    "
+cd examuser
+2. Clone the repository
+git clone https://github.com/your-username/my-project.git
+cd my-project
+3. Modify README.md
+vim README.md
+Example content:
+# My Project       This repository is created to demonstrate Git operations such as cloning, committing, and pushing changes.
+4. Commit changes
+git add README.md
+git commit -m "Updated README with project purpose"
+C. Configure global username & email
+git config --global user.name "Your Name"
+git config --global user.email "your-email@example.com"
+To verify:   git config --list
+D. Pull the README.md from repository
+git pull origin main
+E. Edit README.md & create index.html
+Edit README.md again:
+nano README.md
+(Add more )
+Create index.html:
+nano index.html
+Example:
+<!DOCTYPE html>  <html>    <head>
+    <title>My Project</title>
+</head>
+<body>
+    <h1>Welcome to My Project</h1>
+</body>  </html>
+Add both files to staging area:
+git add README.md index.html
+F. Push changes using upstream flag
+Commit changes:  git commit -m "Added index.html and updated README"
+Push with upstream: git push -u origin main
+
+only the required commands for each part of Question 2:
+a) Go to main branch
+git branch
+git checkout main
+b) C0 – Add `<h1>` tag in README.md
+nano README.md ( create md file type anything you want)
+git add README.md
+git commit -m "C0: Added h1 tag in README.md"
+c) C1 – Create a new txt file
+nano file.txt
+git add file.txt
+git commit -m "C1: Created new txt file"
+d) C2 – Modify the txt file
+nano file.txt
+git add file.txt
+git commit -m "C2: Modified txt file"
+e) View differences (Diff)
+git diff
+git diff HEAD~1
+
+f) Push to remote main branch
+git push -u origin main
+Q2.b set C
+## **Branch iss53, Commit C3, Diff, and Push (Commands Only)**
+a) Create and switch to `iss53` branch
+git checkout -b iss53
+b) C3 – Create `index.html` and update `README.md`
+nano index.html
+<!DOCTYPE html>       <html>      <head>
+    <title>My Project</title>
+</head>  <body>
+    <h1>Welcome to My Project</h1>
+    <p>This is the index file created in iss53 branch.</p>
+</body>    </html>
+nano README.md
+git add index.html README.md
+git commit -m "C3: Added index.html and updated README.md in iss53 branch"
+c) Compare commits C1 and C2
+git diff C1 C2
+d) Compare `main` branch with `iss53` branch
+git diff main iss53
+e) Push `iss53` branch to remote repository
+git push -u origin iss53
+## Q2 c
+only the required commands** for Question **2(c)** (`hotfix` branch, commit C4, and push)
+### **a) Create and switch to `hotfix` branch (from main)**
+git checkout main
+git checkout -b hotfix
+### **b) C4 – Update the existing txt file**
+nano file.txt             git add file.txt
+git commit -m "C4: Updated txt file in hotfix branch"
+### **c) Push `hotfix` branch to remote repository**
+git push -u origin hotfix
+## Q2d and e
+# ✅ **(d) Merge `hotfix` into `main` and delete `hotfix`**
+### Step 1: Switch to main branch
+git checkout main
+### Step 2: Merge hotfix into main
+git merge hotfix
+### Step 3: Delete hotfix branch (local)
+git branch -d hotfix
+### (Optional) Delete remote hotfix branch
+git push origin --delete hotfix
+# ✅ **(e) Merge `iss53` into main and delete `iss53`**
+### Step 1: Switch to main branch
+git checkout main
+### Step 2: Merge iss53 into main
+git merge iss53
+### Step 3: Delete iss53 branch (local)
+git branch -d iss53
+### (Optional) Delete remote iss53 branch
+git push origin --delete iss53
+## To install terraform use below commands
+cd ~
+curl -LO https://releases.hashicorp.com/terraform/1.9.5/terraform_1.9.5_linux_amd64.zip
+unzip terraform_1.9.5_linux_amd64.zip
+mkdir -p $HOME/bin mv terraform $HOME/bin/
+echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc  source ~/.bashrc
+terraform -version
+is 1.14.8. You can update by downloading from https://www.terraform.io/downloads.html
+## Terraform  Q1.
+## Set up a sample project using manual configuration for an Ubuntu EC2 instance, incorporating the following steps: 
+# EC2 Apache Sample Project
+# ✅ STEP 1: Connect to EC2
+ssh -i your-key.pem ubuntu@<EC2_PUBLIC_IP>
+# ✅ STEP 2: Switch to root
+sudo -i
+# ✅ STEP 3: Update system
+apt update && apt upgrade -y
+# ✅ STEP 4: Install Apache2
+apt install apache2 -y
+Start Apache:
+systemctl start apache2
+systemctl enable apache2
+# ✅ STEP 5: Install tools
+apt install wget unzip -y
+# ✅ STEP 6: Create sample project
+mkdir sample-project
+nano sample-project/index.html
+👉 Paste this SIMPLE code:
+```html id="e8"
+<!DOCTYPE html>
+<html>    <head>
+    <title>EC2 Project</title>
+</head>    <body>
+    <h1>Apache is Running on EC2 🚀</h1>
+    <p>Sample project deployed successfully.</p>
+</body>     </html>
+Save:
+* CTRL + X
+* Y
+* ENTER
+# ✅ STEP 7: Move project to Apache folder
+rm -rf /var/www/html/*
+cp -r sample-project/* /var/www/html/
+# ✅ STEP 8: Set permissions
+chown -R www-data:www-data /var/www/html/
+chmod -R 755 /var/www/html/
+# ✅ STEP 9: Restart Apache
+systemctl restart apache2
+# ✅ STEP 10: Get Private IP
+hostname -I
+Example output:
+172.31.38.159
+# STEP 11: Open in browser
+http://<PRIVATE_IP>
+Example:
+http://172.31.38.159
+# STEP 12: AWS Security Group
+Make sure:
+* Type: HTTP
+* Port: 80
+* Source: 0.0.0.0/0
+#  FINAL RESULT 
+Apache is Running on EC2 
+Sample project deployed successfully.
+SET A Q2
+first config the aws 
+$ aws configure
+then follow the steps as shown
+AWS EC2 INSTANCE USING TERRAFORM
+Region: ap-south-1
+Instance: t3.micro
+Name Tag: ExampleAppServerInstance
+STEP 1: Create directory
+mkdir terraform-ec2
+cd terraform-ec2
+STEP 2: Create file
+nano main.tf
+STEP 3: Terraform Configuration (main.tf)
+terraform {
+  required_version = ">= 1.3.0"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 5.0"
+    }
+  }
+}
+provider "aws" {
+  region = "ap-south-1"
+}
+resource "aws_instance" "example_app_server" {
+  ami           = "ami-00bb6a80f"(put your ami id)
+  instance_type = "t3.micro"
+  tags = {
+    Name = "ExampleAppServerInstance"
+  }
+}
+STEP 4: Initialize Terraform
+terraform init
+STEP 5: Validate Configuration
+terraform validate
+STEP 6: Create Execution Plan
+terraform plan
+STEP 7: Apply Configuration
+terraform apply
+(Type "yes" when prompted)
+STEP 8: Verify in AWS Console
+Go to AWS Management Console:
+EC2 → Instances → Running Instances
+Check:
+- Instance Name: ExampleAppServerInstance
+- Region: ap-south-1 (Mumbai)
+- Instance Type: t3.micro
+- AMI ID: ami-00bb6a80f
+FINAL RESULT
+EC2 instance is successfully created using Terraform.
+##SETB q3 terraform
+##AWS EC2 INSTANCE USING VARIABLES
+Region: ap-south-1
+Instance Type: t3.micro
+STEP 1: Create directory
+mkdir terraform-ec2
+cd terraform-ec2
+STEP 2: Create main.tf
+nano main.tf
+terraform {
+  required_version = ">= 1.3.0"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 5.0"
+    }
+  }
+}
+provider "aws" {
+  region = "ap-south-1"
+}
+resource "aws_instance" "example_app_server" {
+  ami           = "ami-00bb6a80f"(put your ami id)
+  instance_type = "t3.micro"
+  tags = {
+    Name = var.instance_name
+  }
+}
+STEP 3: Create variables.tf
+nano variables.tf
+variable "instance_name" {
+  description = "Name tag for EC2 instance"
+  type        = string
+  default     = "ExampleAppServerInstance"
+}
+STEP 4: Terraform Commands
+terraform init
+terraform validate
+terraform plan
+terraform apply
+##SETB Q8
+##AWS EC2 INSTANCE OUTPUTS USING TERRAFORM
+Region: ap-south-1
+Instance Type: t3.micro
+STEP 1: Create directory
+mkdir terraform-ec2
+cd terraform-ec2
+STEP 2: Create main.tf
+nano main.tf
+terraform {
+  required_version = ">= 1.3.0"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 5.0"
+    }
+  }
+}
+provider "aws" {
+  region = "ap-south-1"
+}
+resource "aws_instance" "example_app_server" {
+  ami           = "ami-00bb6a80f"(put your ami id)
+  instance_type = "t3.micro"
+  tags = {
+    Name = "ExampleAppServerInstance"
+  }
+}
+STEP 3: Create outputs.tf
+nano outputs.tf
+output "instance_id" {
+  description = "ID of the EC2 instance"
+  value       = aws_instance.example_app_server.id
+}
+output "public_ip" {
+  description = "Public IP address of EC2 instance"
+  value       = aws_instance.example_app_server.public_ip
+}
+STEP 4: Terraform Commands
+terraform init
+terraform validate
+terraform plan
+terraform apply
+STEP 5: Outputs:
+instance_id = "i-xxxxxxxxxxxx"
+public_ip   = "xx.xx.xx.xx"
+
+## TERRAFORM AWS EC2 INSTANCE DEPLOYMENT
+Region: ap-south-1
+Instance Type: t3.micro
+Security Group: web-sg
+Key Pair: terraQ2
+STEP 1: Create project directory
+mkdir terraform-ec2
+cd terraform-ec2
+STEP 2: Create Terraform files
+nano main.tf
+nano outputs.tf
+nano user_data.sh
+STEP 3: main.tf (UPDATED & CORRECT)
+terraform {
+  required_version = ">= 1.3.0"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 5.0"
+    }
+  }
+}
+provider "aws" {
+  region = "ap-south-1"
+}
+resource "aws_security_group" "web_sg" {
+  name        = "web-sg-01"
+  description = "Allow SSH and HTTP traffic"
+  ingress {
+    description = "SSH"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
+    description = "HTTP"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+resource "aws_instance" "web_server" {
+  ami           = "ami-05d2d839d4f73aafb"(put yours ami id)
+  instance_type = "t3.micro"
+  key_name      = "terraQ2"
+  vpc_security_group_ids = [aws_security_group.web_sg.id]
+  root_block_device {
+    volume_size = 10
+    volume_type = "gp2"
+  }
+  user_data = file("user_data.sh")
+  tags = {
+    Name = "MiniFinanceWebServer"
+  }
+}
+STEP 4: user_data.sh (WEB APP SETUP)
+apt update -y
+apt install apache2 wget unzip vim -y
+systemctl start apache2
+systemctl enable apache2
+cd /var/www/html
+wget https://www.tooplate.com/zip-templates/2135_mini_finance.zip
+unzip 2135_mini_finance.zip
+cp -r 2135_mini_finance/* .
+rm -rf 2135_mini_finance.zip 2135_mini_finance
+STEP 5: outputs.tf (FIXED)
+output "instance_id" {
+  description = "ID of the EC2 instance"
+  value       = aws_instance.web_server.id
+}
+output "public_ip" {
+  description = "Public IP address of EC2 instance"
+  value       = aws_instance.web_server.public_ip
+}
+STEP 6: Terraform Commands
+terraform init
+terraform validate
+terraform plan
+terraform apply
+(Type "yes" when prompted)
+STEP 7: Verify in AWS Console
+Security Groups:
+- web-sg-01 allows:
+  - SSH (22)
+  - HTTP (80)
+STEP 8: Access Web Application
+Open browser:
+http://<PUBLIC-IP>
+FINAL RESULT
+✔ EC2 instance created successfully     ✔ Apache installed via user_data
+✔ Mini Finance website deployed        ✔ Accessible via public IP
+✔ Security group configured correctly
+
+##docker assignment 1 and 2
+Assignment 6
+1. Pull Ubuntu Image
+Bash
+docker pull ubuntu:latest
+🔹 2. Run Ubuntu Container
+docker run -it -d --name ubuntu-os ubuntu:latest
+🔹 3. Execute Commands Inside Container
+docker exec -it ubuntu-os mkdir myfolder
+docker exec -it ubuntu-os ls
+🔹 4. Stop & Remove Container
+docker stop ubuntu-os
+docker rm ubuntu-os
+🔹 5. Pull PostgreSQL Image
+docker pull postgres:latest
+🔹 6. Run PostgreSQL Container
+docker run -d --name postgres-user1 -e POSTGRES_PASSWORD=mypassword postgres:latest
+🔹 7. Access PostgreSQL
+docker exec -it postgres-user1 psql -U postgres
+👉 Inside PostgreSQL:
+SQL
+CREATE DATABASE testdb;
+\q
+🔹 8. Stop & Remove PostgreSQL Container
+docker stop postgres-user1
+docker rm postgres-user1
+🔹 9. Create Node App Files
+Make sure these files exist:
+server.js
+package.json
+Dockerfile
+🔹 10. Example Dockerfile
+Dockerfile
+FROM node:20-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+CMD ["node", "server.js"]
+🔹 11. Build Docker Image
+docker build -t node-docker-app .
+🔹 12. Run Node Container
+docker run -d -p 3000:3000 --name node-app node-docker-app
+🔹 13. Tag Image for Docker Hub
+docker tag node-docker-app add2026/node-docker-app:latest//add2026:account user name
+🔹 14. Login to Docker Hub
+docker login
+🔹 15. Push Image
+docker push add2026/node-docker-app:latest//add2026:account user name
+🔹 16. (Optional) Clean Up
+docker stop node-app
+docker rm node-app
+
+Assignment 7
+Set-a
+docker network create mongo-network
+docker run -d \
+--name mongodb \
+--network mongo-network \
+-p 27017:27017 \
+-e MONGO_INITDB_ROOT_USERNAME=admin \
+-e MONGO_INITDB_ROOT_PASSWORD=password \
+mongo
+docker ps
+set-b
+docker run -d \
+--name mongo-express \
+--network mongo-network \
+-p 8081:8081 \
+-e ME_CONFIG_MONGODB_ADMINUSERNAME=admin \
+-e ME_CONFIG_MONGODB_ADMINPASSWORD=password \
+-e ME_CONFIG_MONGODB_SERVER=mongodb \
+mongo-express
+ME_CONFIG_MONGODB_SERVER=mongodb
+http://localhost:8081//check on browser
+set-c
+vi docker-compose.yml
+version: '3'
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+  mongo-express:
+    image: mongo-express
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: password
+      ME_CONFIG_MONGODB_SERVER: mongodb
+docker compose up -d
+http://localhost:8081//check on browser
+docker compose down
