@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Pratinja</h1>
-<h3 align="center">Aspiring Software Developer | Currently in Training & Internship</h3>
+<h3 align="center">Aspiring Software Developer | Agentic AI Developer</h3>
 
 - 🎓 Completed **B.Sc. Computer Science**
 - 🎓Pursuing **M.sc. Computer Science**
