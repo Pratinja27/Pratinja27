@@ -2,10 +2,12 @@
 <h3 align="center">Aspiring Software Developer | Currently in Training & Internship</h3>
 
 - 🎓 Completed **B.Sc. Computer Science**
-- 💼 Currently undergoing **Training & Internship at Kiran Academy (Free Program)**
-- 🔭 Working on **simple projects and strengthening Python fundamentals**
-- 🌱 Exploring **Flask, React.js, and Database Management**
-- 💡 Interested in **Web Technologies, Python, and System Design**
+- 🎓Pursuing **M.sc. Computer Science**
+- 🎓Currently undergoing **Certification in Agentic Systems and Design iHUB DivyaSampark, IIT Roorkee and Masai**
+- 💼**Training & Internship at Kiran Academy (Free Program)**
+- 🔭 Working on **AI-powered projects using Python**
+- 🌱 Exploring **Currently exploring AI-powered applications using Python, LLMs, RAG, and multi-agent systems.**
+- 💡 Interested in **AI ,agentic AI building, Python, and System Design**
 
 <h3 align="left">Tech Stack:</h3>
 <p align="left">
